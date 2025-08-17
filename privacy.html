@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Luna Games Mobile Applications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .lang-selector {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .lang-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: #764ba2;
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+
+        .privacy-content {
+            animation: fadeIn 0.5s ease;
+        }
+
+        .privacy-content h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .privacy-content h4 {
+            color: #764ba2;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .privacy-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .privacy-content ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        .privacy-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            margin: 20px 0;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-box h4 {
+            color: white;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+
+        .back-to-site {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .back-to-site a {
+            background: #667eea;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+
+        .back-to-site a:hover {
+            background: #5a6fd8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Arabic text direction */
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .rtl ul {
+            margin: 15px 30px 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .lang-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-to-site">
+            <a href="index.html">← Back to Luna Games</a>
+        </div>
+
+        <div class="header">
+            <h1>Privacy Policy</h1>
+            <p>Luna Games Mobile Applications</p>
+            <p><strong>Effective Date:</strong> January 17, 2025</p>
+        </div>
+
+        <div class="lang-selector">
+            <h3>Select Language / Sprache auswählen / Seleziona lingua</h3>
+            <button onclick="showLanguage('en')" class="lang-btn active" id="lang-en">English</button>
+            <button onclick="showLanguage('de')" class="lang-btn" id="lang-de">Deutsch</button>
+            <button onclick="showLanguage('it')" class="lang-btn" id="lang-it">Italiano</button>
+            <button onclick="showLanguage('pl')" class="lang-btn" id="lang-pl">Polski</button>
+            <button onclick="showLanguage('uk')" class="lang-btn" id="lang-uk">Українська</button>
+            <button onclick="showLanguage('ru')" class="lang-btn" id="lang-ru">Русский</button>
+            <button onclick="showLanguage('ar')" class="lang-btn" id="lang-ar">العربية</button>
+            <button onclick="showLanguage('fr')" class="lang-btn" id="lang-fr">Français</button>
+        </div>
+
+        <!-- English -->
+        <div id="privacy-en" class="privacy-content">
+            <h3>Privacy Policy for Luna Games Mobile Applications</h3>
+            
+            <div class="highlight">
+                <strong>Key Point:</strong> Luna Games does NOT collect, store, or transmit any personal data. All game data stays on your device. We only use AdMob for advertisements.
+            </div>
+            
+            <h4>1. Data We Do NOT Collect</h4>
+            <p><strong>Luna Games does NOT collect any personal information including:</strong></p>
+            <ul>
+                <li>Names, email addresses, or contact information</li>
+                <li>Game progress, scores, or achievements</li>
+                <li>Device identifiers (except those used by AdMob)</li>
+                <li>Location data</li>
+                <li>Photos, camera, or microphone access</li>
+                <li>Any user-generated content</li>
+            </ul>
+            <p><strong>All your game data remains locally stored on your device only.</strong></p>
+            
+            <h4>2. Third-Party Advertising (Google AdMob)</h4>
+            <p>Our games display advertisements through Google AdMob. Google AdMob may automatically collect:</p>
+            <ul>
+                <li><strong>Advertising Identifier:</strong> A unique, user-resettable ID for advertising purposes</li>
+                <li><strong>IP Address:</strong> For general location and fraud prevention</li>
+                <li><strong>Device Information:</strong> Device type, operating system, screen resolution</li>
+                <li><strong>App Usage:</strong> Which ads are displayed and whether they are clicked</li>
+            </ul>
+            <p><strong>This data is collected by Google, not by Luna Games.</strong></p>
+            
+            <h4>3. How Ads Work in Our Games</h4>
+            <p>Advertisements in our games are:</p>
+            <ul>
+                <li><strong>Non-personalized:</strong> We do not enable personalized advertising</li>
+                <li><strong>Age-appropriate:</strong> Suitable for all audiences including children</li>
+                <li><strong>Optional:</strong> You can play our games without viewing ads</li>
+                <li><strong>Safe:</strong> All ads go through Google's content review process</li>
+            </ul>
+            
+            <h4>4. Children's Privacy (COPPA Compliance)</h4>
+            <p>Our games are designed to be safe for children:</p>
+            <ul>
+                <li>We do NOT collect any personal information from children of any age</li>
+                <li>Only non-personalized, family-friendly ads are shown</li>
+                <li>No chat features or social interactions</li>
+                <li>No in-app purchases that require personal information</li>
+            </ul>
+            
+            <h4>5. Data Security</h4>
+            <p>Since we don't collect personal data, there are no security risks related to personal information on our end. Your game progress is stored locally on your device and is as secure as your device.</p>
+            
+            <h4>6. Your Control Over Data</h4>
+            <p>You can:</p>
+            <ul>
+                <li><strong>Reset Advertising ID:</strong> Clear your advertising identifier in device settings</li>
+                <li><strong>Limit Ad Tracking:</strong> Disable ad personalization in your device settings</li>
+                <li><strong>Delete All Data:</strong> Uninstall the app to remove all local game data</li>
+                <li><strong>Play Offline:</strong> Our games work without internet connection</li>
+            </ul>
+            
+            <div class="contact-box">
+                <h4>Contact Information</h4>
+                <p><strong>Email:</strong> lunagameskingape@gmail.com</p>
+                <p>For any privacy-related questions or concerns</p>
+            </div>
+            
+            <h4>7. Third-Party Privacy Policies</h4>
+            <p>For more information about Google's data practices:</p>
+            <ul>
+                <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+                <li><a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob Privacy Information</a></li>
+            </ul>
+            
+            <h4>8. Changes to This Policy</h4>
+            <p>We may update this privacy policy as needed. Any changes will be posted on this page with an updated effective date.</p>
+            
+            <h4>9. Legal Information</h4>
+            <p><strong>Company:</strong> Luna Games<br>
+            <strong>Developer:</strong> Fabian Suhrke<br>
+            <strong>Address:</strong> Maria Herbert Straße 5, 93051 Regensburg, Germany<br>
+            <strong>Email:</strong> lunagameskingape@gmail.com</p>
+        </div>
+
+        <!-- German -->
+        <div id="privacy-de" class="privacy-content" style="display: none;">
+            <h3>Datenschutzerklärung für Luna Games Mobile Anwendungen</h3>
+            
+            <div class="highlight">
+                <strong>Wichtiger Punkt:</strong> Luna Games sammelt, speichert oder überträgt KEINE persönlichen Daten. Alle Spieldaten bleiben auf Ihrem Gerät. Wir verwenden nur AdMob für Werbung.
+            </div>
+            
+            <h4>1. Daten, die wir NICHT sammeln</h4>
+            <p><strong>Luna Games sammelt KEINE persönlichen Informationen, einschließlich:</strong></p>
+            <ul>
+                <li>Namen, E-Mail-Adressen oder Kontaktinformationen</li>
+                <li>Spielfortschritt, Punkte oder Erfolge</li>
+                <li>Gerätekennungen (außer denen, die von AdMob verwendet werden)</li>
+                <li>Standortdaten</li>
+                <li>Fotos, Kamera- oder Mikrofonzugriff</li>
+                <li>Benutzergenerierte Inhalte</li>
+            </ul>
+            <p><strong>Alle Ihre Spieldaten bleiben nur lokal auf Ihrem Gerät gespeichert.</strong></p>
+            
+            <h4>2. Werbung von Drittanbietern (Google AdMob)</h4>
+            <p>Unsere Spiele zeigen Werbung über Google AdMob an. Google AdMob kann automatisch sammeln:</p>
+            <ul>
+                <li><strong>Werbe-Identifikator:</strong> Eine eindeutige, vom Benutzer zurücksetzbare ID für Werbezwecke</li>
+                <li><strong>IP-Adresse:</strong> Für allgemeine Standortbestimmung und Betrugsprävention</li>
+                <li><strong>Geräteinformationen:</strong> Gerätetyp, Betriebssystem, Bildschirmauflösung</li>
+                <li><strong>App-Nutzung:</strong> Welche Anzeigen angezeigt und ob sie angeklickt werden</li>
+            </ul>
+            <p><strong>Diese Daten werden von Google gesammelt, nicht von Luna Games.</strong></p>
+            
+            <h4>3. Wie Werbung in unseren Spielen funktioniert</h4>
+            <p>Werbung in unseren Spielen ist:</p>
+            <ul>
+                <li><strong>Nicht personalisiert:</strong> Wir aktivieren keine personalisierte Werbung</li>
+                <li><strong>Altersgerecht:</strong> Geeignet für alle Zielgruppen einschließlich Kinder</li>
+                <li><strong>Optional:</strong> Sie können unsere Spiele spielen, ohne Werbung anzusehen</li>
+                <li><strong>Sicher:</strong> Alle Anzeigen durchlaufen Googles Inhaltsüberprüfung</li>
+            </ul>
+            
+            <h4>4. Kinderschutz (COPPA-Konformität)</h4>
+            <p>Unsere Spiele sind darauf ausgelegt, sicher für Kinder zu sein:</p>
+            <ul>
+                <li>Wir sammeln KEINE persönlichen Informationen von Kindern jeden Alters</li>
+                <li>Nur nicht-personalisierte, familienfreundliche Anzeigen werden gezeigt</li>
+                <li>Keine Chat-Funktionen oder soziale Interaktionen</li>
+                <li>Keine In-App-Käufe, die persönliche Informationen erfordern</li>
+            </ul>
+            
+            <div class="contact-box">
+                <h4>Kontaktinformationen</h4>
+                <p><strong>E-Mail:</strong> lunagameskingape@gmail.com</p>
+                <p>Für alle datenschutzbezogenen Fragen oder Bedenken</p>
+            </div>
+        </div>
+
+        <!-- Italian -->
+        <div id="privacy-it" class="privacy-content" style="display: none;">
+            <h3>Informativa sulla Privacy per le Applicazioni Mobile Luna Games</h3>
+            
+            <div class="highlight">
+                <strong>Punto chiave:</strong> Luna Games NON raccoglie, memorizza o trasmette alcun dato personale. Tutti i dati di gioco rimangono sul vostro dispositivo. Utilizziamo solo AdMob per la pubblicità.
+            </div>
+            
+            <h4>1. Dati che NON raccogliamo</h4>
+            <p><strong>Luna Games NON raccoglie alcuna informazione personale incluso:</strong></p>
+            <ul>
+                <li>Nomi, indirizzi email o informazioni di contatto</li>
+                <li>Progresso di gioco, punteggi o risultati</li>
+                <li>Identificatori del dispositivo (eccetto quelli usati da AdMob)</li>
+                <li>Dati di posizione</li>
+                <li>Accesso a foto, fotocamera o microfono</li>
+                <li>Qualsiasi contenuto generato dall'utente</li>
+            </ul>
+            <p><strong>Tutti i vostri dati di gioco rimangono memorizzati localmente solo sul vostro dispositivo.</strong></p>
+            
+            <div class="contact-box">
+                <h4>Informazioni di Contatto</h4>
+                <p><strong>Email:</strong> lunagameskingape@gmail.com</p>
+                <p>Per qualsiasi domanda o preoccupazione relativa alla privacy</p>
+            </div>
+        </div>
+
+        <!-- Polish -->
+        <div id="privacy-pl" class="privacy-content" style="display: none;">
+            <h3>Polityka Prywatności dla Aplikacji Mobilnych Luna Games</h3>
+            
+            <div class="highlight">
+                <strong>Kluczowy punkt:</strong> Luna Games NIE zbiera, nie przechowuje ani nie przesyła żadnych danych osobowych. Wszystkie dane gry pozostają na Twoim urządzeniu. Używamy tylko AdMob do reklam.
+            </div>
+            
+            <div class="contact-box">
+                <h4>Informacje Kontaktowe</h4>
+                <p><strong>Email:</strong> lunagameskingape@gmail.com</p>
+                <p>W sprawach dotyczących prywatności</p>
+            </div>
+        </div>
+
+        <!-- Ukrainian -->
+        <div id="privacy-uk" class="privacy-content" style="display: none;">
+            <h3>Політика Конфіденційності для Мобільних Додатків Luna Games</h3>
+            
+            <div class="highlight">
+                <strong>Ключовий момент:</strong> Luna Games НЕ збирає, не зберігає і не передає жодних особистих даних. Всі дані гри залишаються на вашому пристрої. Ми використовуємо лише AdMob для реклами.
+            </div>
+            
+            <div class="contact-box">
+                <h4>Контактна Інформація</h4>
+                <p><strong>Email:</strong> lunagameskingape@gmail.com</p>
+                <p>З питань конфіденційності</p>
+            </div>
+        </div>
+
+        <!-- Russian -->
+        <div id="privacy-ru" class="privacy-content" style="display: none;">
+            <h3>Политика Конфиденциальности для Мобильных Приложений Luna Games</h3>
+            
+            <div class="highlight">
+                <strong>Ключевой момент:</strong> Luna Games НЕ собирает, не хранит и не передает никаких персональных данных. Все данные игры остаются на вашем устройстве. Мы используем только AdMob для рекламы.
+            </div>
+            
+            <div class="contact-box">
+                <h4>Контактная Информация</h4>
+                <p><strong>Email:</strong> lunagameskingape@gmail.com</p>
+                <p>По вопросам конфиденциальности</p>
+            </div>
+        </div>
+
+        <!-- Arabic -->
+        <div id="privacy-ar" class="privacy-content rtl" style="display: none;">
+            <h3>سياسة الخصوصية لتطبيقات Luna Games المحمولة</h3>
+            
+            <div class="highlight">
+                <strong>النقطة الأساسية:</strong> Luna Games لا تجمع أو تخزن أو تنقل أي بيانات شخصية. جميع بيانات اللعبة تبقى على جهازك. نستخدم فقط AdMob للإعلانات.
+            </div>
+            
+            <div class="contact-box">
+                <h4>معلومات الاتصال</h4>
+                <p><strong>البريد الإلكتروني:</strong> lunagameskingape@gmail.com</p>
+                <p>للأسئلة المتعلقة بالخصوصية</p>
+            </div>
+        </div>
+
+        <!-- French -->
+        <div id="privacy-fr" class="privacy-content" style="display: none;">
+            <h3>Politique de Confidentialité pour les Applications Mobiles Luna Games</h3>
+            
+            <div class="highlight">
+                <strong>Point clé :</strong> Luna Games NE collecte, ne stocke ni ne transmet aucune donnée personnelle. Toutes les données de jeu restent sur votre appareil. Nous utilisons seulement AdMob pour la publicité.
+            </div>
+            
+            <div class="contact-box">
+                <h4>Informations de Contact</h4>
+                <p><strong>Email :</strong> lunagameskingape@gmail.com</p>
+                <p>Pour toute question liée à la confidentialité</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Luna Games - Privacy Policy</p>
+            <p>Last updated: January 17, 2025</p>
+            <p><strong>Direct link to this page:</strong> <code>https://yourusername.github.io/privacy.html</code></p>
+        </div>
+    </div>
+
+    <script>
+        function showLanguage(lang) {
+            // Hide all privacy content
+            const contents = document.querySelectorAll('.privacy-content');
+            contents.forEach(content => content.style.display = 'none');
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected language and activate button
+            document.getElementById('privacy-' + lang).style.display = 'block';
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load saved preference or default to English
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            showLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
