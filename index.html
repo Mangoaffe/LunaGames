@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Games - Innovative Game Development Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .game-tag {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 5px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .steam-link {
+            display: inline-block;
+            background: #1b2838;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .steam-link:hover {
+            background: #2a475e;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Luna Games</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#impressum">Impressum</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Luna Games</h1>
+                <p>Innovative Game Development Studio</p>
+                <p>Creating engaging experiences from strategic battles to educational adventures</p>
+                <a href="#games" class="cta-button">Explore Our Games</a>
+            </div>
+        </section>
+
+        <section id="games" class="section">
+            <div class="container">
+                <h2>Our Games</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h3>Battle Beat Arena</h3>
+                        <div class="game-tag">Turn-Based Strategy</div>
+                        <div class="game-tag">Rhythm Game</div>
+                        <div class="game-tag">Fantasy RPG</div>
+                        <p>Ready for a turn-based strategy game with a rhythm twist? Battle Beat Arena combines the groove of rhythm games with the depth of turn-based strategy. Transform heroes into beasts, gather resources, build a base, and recruit monsters mid-battle.</p>
+                        <p><strong>Features:</strong></p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>Over 100 diverse music tracks from hip hop to metal</li>
+                            <li>Strategic gameplay with rhythm-based combat</li>
+                            <li>Epic realm of Jarenara to explore</li>
+                            <li>Transform heroes into powerful beasts</li>
+                            <li>Build and recruit during battles</li>
+                        </ul>
+                        <a href="https://store.steampowered.com/app/3019080/Battle_Beat_Arena/" class="steam-link" target="_blank">View on Steam</a>
+                    </div>
+
+                    <div class="game-card">
+                        <h3>Level Up School</h3>
+                        <div class="game-tag">Serious Game</div>
+                        <div class="game-tag">Educational</div>
+                        <div class="game-tag">Grade Management</div>
+                        <p>An innovative serious game designed for educational institutions to revolutionize grade management and student engagement. Level Up School transforms traditional academic tracking into an engaging, gamified experience.</p>
+                        <p><strong>Features:</strong></p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>Gamified grade tracking system</li>
+                            <li>Student progress visualization</li>
+                            <li>Interactive learning analytics</li>
+                            <li>Teacher-friendly interface</li>
+                            <li>Motivational achievement system</li>
+                        </ul>
+                        <p style="margin-top: 1rem; font-style: italic;">Coming Soon - Revolutionizing education through gamification</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Luna Games</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Luna Games is an innovative game development studio dedicated to creating unique gaming experiences that blend entertainment with purpose. We specialize in developing games that not only entertain but also educate and inspire.</p>
+                        
+                        <p>Our team combines creative storytelling with cutting-edge technology to deliver games that push boundaries. From rhythm-based strategy games to serious educational applications, we believe in the power of games to make a positive impact.</p>
+                        
+                        <p>With a focus on quality, innovation, and player engagement, Luna Games continues to explore new frontiers in game design and development.</p>
+                    </div>
+                    <div>
+                        <div class="stats">
+                            <div class="stat">
+                                <div class="stat-number">2+</div>
+                                <div>Games Published</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">100+</div>
+                                <div>Music Tracks</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">∞</div>
+                                <div>Creativity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>What Makes Us Different</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎵</div>
+                        <h3>Music-Driven Gameplay</h3>
+                        <p>We integrate music seamlessly into gameplay mechanics, creating unique rhythm-strategy experiences.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎓</div>
+                        <h3>Serious Games</h3>
+                        <p>Developing educational games that make learning engaging and effective for students and professionals.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Innovation First</h3>
+                        <p>We push the boundaries of traditional game genres, creating fresh and exciting experiences.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3>Player-Centered</h3>
+                        <p>Every game is designed with the player experience at the forefront, ensuring engaging and memorable gameplay.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Business Inquiries</h3>
+                        <p>Interested in partnerships or publishing opportunities?</p>
+                        <p><strong>Email:</strong> lunagameskingape@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Support & Feedback</h3>
+                        <p>Need help with our games or have feedback?</p>
+                        <p><strong>Email:</strong> lunagameskingape@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Find Our Games</h3>
+                        <p>Play our games on these platforms</p>
+                        <p><strong>Steam:</strong> Luna Games</p>
+                        <p><strong>Website:</strong> lunagames.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impressum" class="section">
+            <div class="container">
+                <h2>Impressum</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <h3>Angaben gemäß § 5 TMG</h3>
+                    <p><strong>Luna Games</strong><br>
+                    Fabian Suhrke<br>
+                    Maria Herbert Straße 5<br>
+                    93051 Regensburg<br>
+                    Deutschland</p>
+
+                    <h3>Kontakt</h3>
+                    <p>E-Mail: lunagameskingape@gmail.com</p>
+
+                    <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+                    <p>Fabian Suhrke<br>
+                    Maria Herbert Straße 5<br>
+                    93051 Regensburg</p>
+
+                    <h3>EU-Streitschlichtung</h3>
+                    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+                    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a><br>
+                    Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+
+                    <h3>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h3>
+                    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+                    <h3>Haftung für Inhalte</h3>
+                    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+                    <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+                    <h3>Haftung für Links</h3>
+                    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+
+                    <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+
+                    <h3>Urheberrecht</h3>
+                    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+
+                    <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="datenschutz" class="section">
+            <div class="container">
+                <h2>Datenschutzerklärung</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <h3>1. Datenschutz auf einen Blick</h3>
+                    <h4>Allgemeine Hinweise</h4>
+                    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
+
+                    <h4>Datenerfassung auf dieser Website</h4>
+                    <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong></p>
+                    <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+
+                    <p><strong>Wie erfassen wir Ihre Daten?</strong></p>
+                    <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
+
+                    <p>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+
+                    <h3>2. Hosting</h3>
+                    <p>Wir hosten die Inhalte unserer Website bei folgenden Anbietern:</p>
+                    <p><strong>Externes Hosting</strong></p>
+                    <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters / der Hoster gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
+
+                    <p>Das externe Hosting erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).</p>
+
+                    <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
+                    <h4>Datenschutz</h4>
+                    <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzbestimmungen sowie dieser Datenschutzerklärung.</p>
+
+                    <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.</p>
+
+                    <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+
+                    <h4>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h4>
+                    <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+
+                    <h4>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h4>
+                    <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.</p>
+
+                    <h3>4. Datenerfassung auf dieser Website</h3>
+                    <h4>Server-Log-Dateien</h4>
+                    <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+                    <ul>
+                        <li>Browsertyp und Browserversion</li>
+                        <li>verwendetes Betriebssystem</li>
+                        <li>Referrer URL</li>
+                        <li>Hostname des zugreifenden Rechners</li>
+                        <li>Uhrzeit der Serveranfrage</li>
+                        <li>IP-Adresse</li>
+                    </ul>
+                    <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
+
+                    <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
+
+                    <h4>Kontaktformular</h4>
+                    <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+
+                    <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde.</p>
+
+                    <p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
+
+                    <h3>5. Ihre Rechte</h3>
+                    <p>Sie haben folgende Rechte:</p>
+                    <ul>
+                        <li>Recht auf Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten</li>
+                        <li>Recht auf Berichtigung unrichtiger oder unvollständiger Daten</li>
+                        <li>Recht auf Löschung Ihrer bei uns gespeicherten Daten</li>
+                        <li>Recht auf Einschränkung der Datenverarbeitung</li>
+                        <li>Recht auf Datenübertragbarkeit</li>
+                        <li>Widerspruchsrecht gegen die Verarbeitung Ihrer Daten</li>
+                        <li>Recht auf Beschwerde bei einer Aufsichtsbehörde</li>
+                    </ul>
+
+                    <p>Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns gerne eine E-Mail oder wenden Sie sich direkt an die für den Datenschutz verantwortliche Person in unserer Organisation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="agb" class="section">
+            <div class="container">
+                <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <h3>§ 1 Geltungsbereich</h3>
+                    <p>Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen Luna Games (Fabian Suhrke) und seinen Kunden bezüglich der Bereitstellung von Spielen und damit verbundenen Dienstleistungen.</p>
+
+                    <h3>§ 2 Vertragsschluss</h3>
+                    <p>Der Vertrag kommt durch den Kauf unserer Spiele über die entsprechenden Plattformen (z.B. Steam) zustande. Mit dem Kaufvorgang akzeptiert der Kunde diese AGB.</p>
+
+                    <h3>§ 3 Nutzungsrechte</h3>
+                    <p>Der Kunde erwirbt ein nicht-exklusives, nicht-übertragbares Recht zur privaten Nutzung der erworbenen Spiele. Eine kommerzielle Nutzung ohne ausdrückliche Genehmigung ist untersagt.</p>
+
+                    <h3>§ 4 Gewährleistung</h3>
+                    <p>Wir gewährleisten, dass unsere Spiele grundsätzlich funktionstüchtig sind. Bei Mängeln bemühen wir uns um schnelle Behebung durch Updates oder Patches.</p>
+
+                    <h3>§ 5 Haftung</h3>
+                    <p>Unsere Haftung ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Die Haftung für leichte Fahrlässigkeit ist ausgeschlossen, soweit nicht vertragswesentliche Pflichten betroffen sind.</p>
+
+                    <h3>§ 6 Datenschutz</h3>
+                    <p>Der Umgang mit personenbezogenen Daten erfolgt gemäß unserer Datenschutzerklärung und den geltenden Datenschutzbestimmungen.</p>
+
+                    <h3>§ 7 Schlussbestimmungen</h3>
+                    <p>Es gilt deutsches Recht. Erfüllungsort und Gerichtsstand ist Regensburg. Sollten einzelne Bestimmungen unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Luna Games. All rights reserved.</p>
+            <p>Creating innovative gaming experiences since 2024</p>
+            <div style="margin-top: 1rem;">
+                <a href="#impressum" style="color: #ccc; text-decoration: none; margin-right: 1rem;">Impressum</a>
+                <a href="#datenschutz" style="color: #ccc; text-decoration: none; margin-right: 1rem;">Datenschutz</a>
+                <a href="#agb" style="color: #ccc; text-decoration: none;">AGB</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all game cards and feature cards
+        document.querySelectorAll('.game-card, .feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
